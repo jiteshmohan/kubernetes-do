@@ -5,7 +5,7 @@
  * Select an appropriate region
  * CoreOS 76.4.0(Stable release)
  * Turn on private networking
- * Select User Data option
+ * Select User Data option
  * In the textbox for user data provide information as specidied in [this file](https://github.com/jiteshmohan/kubernetes-do/blob/master/cloud-config)
    - Use this URL [https://discovery.etcd.io/new?size=3](https://discovery.etcd.io/new?size=3) to generate a discovery token. The 3 at the end of the token specifies the number of nodes that are to be present while initiating the cluster. A minimum of these many number of nodes should be present in the cluster for it to be connected through fleet.
    - Replace the token generated above in line 7 of the cloud-config file.
