@@ -49,7 +49,7 @@
   cd kubernetes
   kubectl create -f cluster/addons/kube-ui/kube-ui-rc.yaml --namespace=kube-system
   kubectl create -f cluster/addons/kube-ui/kube-ui-svc.yaml --namespace=kube-system</code></pre>
-16. To access the UI use the link https://<master-public-ip>:6443/ui/
+16. To access the UI use the link https://\<master-public-ip\>:6443/ui/
 
 # References
 https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-kubernetes-on-top-of-a-coreos-cluster
