@@ -1,0 +1,19 @@
+[Unit]
+Description=Kubernetes Kubelet
+After=etcd2.service docker.service
+Requires=etcd2.service docker.service
+
+[Service]
+EnvironmentFile=/etc/environment
+ExecStart=/opt/bin/kubelet \
+--api-servers=${MASTER_PRIVATE_IPV4}:8080 \
+--address=0.0.0.0 \
+--port=10250 \
+--hostname-override=${COREOS_PRIVATE_IPV4} \
+--logtostderr=true \
+--register-node
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

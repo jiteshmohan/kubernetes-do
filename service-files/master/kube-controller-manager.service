@@ -1,0 +1,19 @@
+[Unit]
+Description=Kubernetes Controller Manager
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+Requires=kube-apiserver.service etcd2.service docker.service
+After=kube-apiserver.service etcd2.service docker.service
+
+[Service]
+EnvironmentFile=/etc/environment
+ExecStart=/opt/bin/kube-controller-manager \
+--address=0.0.0.0 \
+--master=${COREOS_PRIVATE_IPV4}:8080 \
+--logtostderr=true \
+--cluster-cidr=10.132.0.0/16 \
+--register-retry-count 100
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

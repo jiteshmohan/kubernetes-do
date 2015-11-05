@@ -1,0 +1,15 @@
+[Unit]
+Description=Kubernetes Scheduler
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+Requires=etcd2.service docker.service
+After=etcd2.service docker.service
+
+[Service]
+EnvironmentFile=/etc/environment
+ExecStart=/opt/bin/kube-scheduler --address=0.0.0.0 \
+--master=${MASTER_PRIVATE_IPV4}:8080
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+[Unit]
+Description=Kubernetes API Server
+Documentation=https://github.com/GoogleCloudPlatform/kubernetes
+Requires=etcd2.service docker.service
+After=etcd2.service docker.service
+
+[Service]
+EnvironmentFile=/etc/environment
+ExecStart=/opt/bin/kube-apiserver --runtime-config=api/v1 --allow-privileged=true --insecure-bind-address=0.0.0.0 --insecure-port=8080 --secure-port=6443 --etcd-servers=http://127.0.0.1:2379 --logtostderr=true --advertise-address=${COREOS_PRIVATE_IPV4} --service-cluster-ip-range=10.100.0.0/16 --bind-address=0.0.0.0
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

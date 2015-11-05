@@ -1,0 +1,17 @@
+[Unit]
+Description=Docker Application Container Engine
+Documentation=http://docs.docker.com
+After=docker.socket early-docker.target network.target flanneld.service
+Requires=docker.socket early-docker.target flanneld.service
+
+[Service]
+EnvironmentFile=-/run/flannel/subnet.env
+MountFlags=slave
+LimitNOFILE=1048576
+LimitNPROC=1048576
+ExecStartPre=-/usr/bin/ip link set dev docker0 down
+ExecStartPre=-/usr/sbin/brctl delbr docker0
+ExecStart=/usr/lib/coreos/dockerd -d -H fd:// --bip=${FLANNEL_SUBNET} --mtu=${FLANNEL_MTU}
+
+[Install]
+WantedBy=multi-user.target

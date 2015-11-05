@@ -1,0 +1,17 @@
+[Unit]
+Description=Kubernetes proxy server
+Requires=etcd2.service docker.service
+After=etcd2.service docker.service
+
+[Service]
+EnvironmentFile=/etc/environment
+ExecStart=/opt/bin/kube-proxy \
+--bind-address=0.0.0.0 \
+--master=${COREOS_PRIVATE_IPV4}:8080 \
+--logtostderr=true \
+--hostname-override=${COREOS_PRIVATE_IPV4}
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
