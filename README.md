@@ -52,6 +52,6 @@
 16. To access the UI use the link https://\<master-public-ip\>:6443/ui/
 
 # References
-https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-kubernetes-on-top-of-a-coreos-cluster
-https://www.digitalocean.com/community/tutorials/how-to-set-up-a-coreos-cluster-on-digitalocean
-http://kubernetes.io/v1.0/docs/user-guide/ui.html
++ https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-kubernetes-on-top-of-a-coreos-cluster
++ https://www.digitalocean.com/community/tutorials/how-to-set-up-a-coreos-cluster-on-digitalocean
++ http://kubernetes.io/v1.0/docs/user-guide/ui.html
