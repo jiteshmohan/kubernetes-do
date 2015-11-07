@@ -51,6 +51,10 @@
   kubectl create -f cluster/addons/kube-ui/kube-ui-svc.yaml --namespace=kube-system</code></pre>
 16. To access the UI use the link https://\<master-public-ip\>:6443/ui/
 
+# Screencast
+[![Screencast](http://img.youtube.com/vi/sLwV_m7D_ks/0.jpg)](https://youtu.be/sLwV_m7D_ks)
+
+
 # References
 + https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-kubernetes-on-top-of-a-coreos-cluster
 + https://www.digitalocean.com/community/tutorials/how-to-set-up-a-coreos-cluster-on-digitalocean
